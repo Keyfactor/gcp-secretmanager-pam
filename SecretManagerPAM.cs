@@ -10,10 +10,11 @@ namespace Keyfactor.Extensions.Pam.Google
 
         public string GetPassword(Dictionary<string, string> instanceParameters, Dictionary<string, string> initializationInfo)
         {
-            // uses default credentials, endpoint
-            // $env:GCLOUD_PROJECT - project name / also endpoint?
-            // $env:GOOGLE_APPLICATION_CREDENTIALS - json credentials file
-            SecretManagerServiceClient pamClient = SecretManagerServiceClient.Create();
+            SecretManagerServiceClientBuilder builder = new SecretManagerServiceClientBuilder
+            {
+                JsonCredentials = initializationInfo["serviceAccountKeyJSON"]
+            };
+            SecretManagerServiceClient pamClient = builder.Build();
 
             SecretVersionName secretName = new SecretVersionName(initializationInfo["projectId"], instanceParameters["secretId"], "latest");
             AccessSecretVersionResponse pamSecret = pamClient.AccessSecretVersion(secretName);
