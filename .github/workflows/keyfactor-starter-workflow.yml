@@ -3,7 +3,7 @@ on: [workflow_dispatch, pull_request, push]
 
 jobs:
   call-create-github-release-workflow:
-    uses: Keyfactor/actions/.github/workflows/github-release.yml@testing-release
+    uses: Keyfactor/actions/.github/workflows/github-release.yml@main
 
   call-dotnet-build-and-release-workflow:
     needs: [call-create-github-release-workflow]
@@ -11,7 +11,7 @@ jobs:
     with:
       release_version: ${{ needs.call-create-github-release-workflow.outputs.release_version }}
       release_url: ${{ needs.call-create-github-release-workflow.outputs.release_url }}
-      release_dir: bin/Release/net472 # output directory to upload as a release, relative to checkout workspace
+      release_dir: bin/Release/net472/export # output directory to upload as a release, relative to checkout workspace
     secrets: 
       token: ${{ secrets.PRIVATE_PACKAGE_ACCESS }}
 
