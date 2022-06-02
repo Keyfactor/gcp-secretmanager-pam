@@ -10,11 +10,7 @@ namespace Keyfactor.Extensions.Pam.Google
 
         public string GetPassword(Dictionary<string, string> instanceParameters, Dictionary<string, string> initializationInfo)
         {
-            SecretManagerServiceClientBuilder builder = new SecretManagerServiceClientBuilder
-            {
-                JsonCredentials = initializationInfo["serviceAccountKeyJSON"]
-            };
-            SecretManagerServiceClient pamClient = builder.Build();
+            SecretManagerServiceClient pamClient = SecretManagerServiceClient.Create();
 
             SecretVersionName secretName = new SecretVersionName(initializationInfo["projectId"], instanceParameters["secretId"], "latest");
             AccessSecretVersionResponse pamSecret = pamClient.AccessSecretVersion(secretName);
