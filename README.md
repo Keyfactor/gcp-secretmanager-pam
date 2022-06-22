@@ -12,10 +12,11 @@ Keyfactor supports the retrieval of credentials from 3rd party Priviledged Acces
 
 
 
----
+
+
 
 ### Initial Configuration of PAM Provider
-In order to allow Keyfactor to use the new Google-SecretManager PAM Provider, the definition needs to be added to the application database.
+In order to allow Keyfactor to use the new Google Secret Manager PAM Provider, the definition needs to be added to the application database.
 This is done by running the provided [add_PAMProvider.sql](./add_PAMProvider.sql) script on the Keyfactor application database, which only needs to be done one time.
 
 If you have a hosted environment or need assistance completing this step, please contact Keyfactor Support.
@@ -26,7 +27,6 @@ The following are the parameter names and a description of the values needed to 
 | Initialization parameter | Display Name | Description | Instance parameter | Display Name | Description |
 | :---: | :---: | --- | :---: | :---: | --- |
 | projectId | Unique Google Cloud Project ID | The unique auto generated ID of your Google Cloud project. This is not the name you may have renamed / assigned to your project after it was created. | secretId | Secret Name | The name of the secret you assigned in the Secret Manager. |
-
 ### Configuring for PAM Usage
 #### In Google Cloud Secret Manager
 The Google Cloud Secret Manager may need to be added to your Google Cloud project if it as not included initially. It appears under the _Security_ menu option.
@@ -71,11 +71,17 @@ For the Google Secrets Manager PAM Provider you will also need to add a binding 
 ##### Usage
 In order to use the PAM Provider, the provider's configuration must be set in the Keyfactor Platform. In the settings menu (upper right cog) you can select the ___Priviledged Access Management___ option to configure your provider instance.
 
-![](images/pam-setting.png)
+![](images/setting.png)
 
-![](images/google-config.png)
+![](images/config.png)
 
 After it is set up, you can now use your PAM Provider when configuring certificate stores. Any field that is treated as a Keyfactor secret, such as server passwords and certificate store passwords can be retrieved from your PAM Provider instead of being entered in directly as a secret.
 
-![](images/google-password.png)
+![](images/password.png)
+
+---
+
+
+### License
+[Apache](https://apache.org/licenses/LICENSE-2.0)
 
