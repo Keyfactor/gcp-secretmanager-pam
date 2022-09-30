@@ -3,7 +3,9 @@
   "integration_type": "pam",
   "name": "Google Secret Manager PAM Provider",
   "status": "production",
+  "update_catalog": true,
   "link_github": true,
+  "support_level": "kf-supported",
   "description": "The Google Secret Manager PAM Provider allows for the use of a Secret Manager instance in Google Cloud to be used as a credential store for Keyfactor. Secret values can be retrieved and used in the Keyfactor Platform as passwords or other sensitive fields.",
   "pamRegDLL":  "complete contents"
 }
