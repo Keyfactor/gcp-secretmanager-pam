@@ -1,6 +1,6 @@
-# Google Secret Manager PAM Provider
+# Google Cloud Secret Manager PAM Provider
 
-The Google Secret Manager PAM Provider allows for the use of a Secret Manager instance in Google Cloud to be used as a credential store for Keyfactor. Secret values can be retrieved and used in the Keyfactor Platform as passwords or other sensitive fields.
+The Google Cloud Secret Manager PAM Provider allows for the use of a Secret Manager instance in Google Cloud to be used as a credential store for Keyfactor. Secret values can be retrieved and used in the Keyfactor Platform as passwords or other sensitive fields.
 
 #### Integration status: Production - Ready for use in production environments.
 
@@ -10,9 +10,9 @@ Keyfactor supports the retrieval of credentials from 3rd party Privileged Access
 
 
 
-## Support for Google Secret Manager PAM Provider
+## Support for Google Cloud Secret Manager PAM Provider
 
-Google Secret Manager PAM Provider is supported by Keyfactor for Keyfactor customers. If you have a support issue, please open a support ticket with your Keyfactor representative.
+Google Cloud Secret Manager PAM Provider is supported by Keyfactor for Keyfactor customers. If you have a support issue, please open a support ticket with your Keyfactor representative.
 
 ###### To report a problem or suggest a new feature, use the **[Issues](../../issues)** tab. If you want to contribute actual bug fixes or proposed enhancements, use the **[Pull requests](../../pulls)** tab.
 
@@ -26,13 +26,13 @@ Google Secret Manager PAM Provider is supported by Keyfactor for Keyfactor custo
 
 
 ### Initial Configuration of PAM Provider
-In order to allow Keyfactor to use the new Google Secret Manager PAM Provider, the definition needs to be added to the application database.
+In order to allow Keyfactor to use the new Google Cloud Secret Manager PAM Provider, the definition needs to be added to the application database.
 This is done by running the provided [add_PAMProvider.sql](./add_PAMProvider.sql) script on the Keyfactor application database, which only needs to be done one time.
 
 If you have a hosted environment or need assistance completing this step, please contact Keyfactor Support.
 
 ### Configuring Parameters
-The following are the parameter names and a description of the values needed to configure the Google Secret Manager PAM Provider.
+The following are the parameter names and a description of the values needed to configure the Google Cloud Secret Manager PAM Provider.
 
 __Initialization Parameters for each defined PAM Provider instance__
 | Initialization parameter | Display Name | Description |
@@ -61,7 +61,7 @@ As a special requirement for authenticating with Google Cloud, you will need to 
 ##### Installation
 In order to setup a new PAM Provider in the Keyfactor Platform for the first time, you will need to run [the SQL Installation Script](./add_PAMProvider.sql) against your Keyfactor application database.
 
-After the installation is run, the DLLs need to be installed to the correct location for the PAM Provider to function. From the release, the google-secretmanager-pam.dll should be copied to the following folder locations in the Keyfactor installation. Once the DLL has been copied to these folders, edit the corresponding config file. You will need to add a new Unity entry as follows under `<container>`, next to other `<register>` tags.
+After the installation is run, the DLLs need to be installed to the correct location for the PAM Provider to function. From the release, the gcp-secretmanager-pam.dll should be copied to the following folder locations in the Keyfactor installation. Once the DLL has been copied to these folders, edit the corresponding config file. You will need to add a new Unity entry as follows under `<container>`, next to other `<register>` tags.
 
 | Install Location | DLL Binary Folder | Config File |
 | --- | --- | --- |
@@ -75,7 +75,7 @@ When enabling a PAM provider for Orchestrators only, the first line for `WebAgen
 The Keyfactor service and IIS Server should be restarted after making these changes.
 
 ```xml
-<register type="IPAMProvider" mapTo="Keyfactor.Extensions.Pam.Google.SecretManagerPAM, google-secretmanager-pam" name="Google-SecretManager" />
+<register type="IPAMProvider" mapTo="Keyfactor.Extensions.Pam.GCP.SecretManagerPAM, gcp-secretmanager-pam" name="GCP-SecretManager" />
 ```
 
 
