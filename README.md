@@ -23,8 +23,6 @@ Google Cloud Secret Manager PAM Provider is supported by Keyfactor for Keyfactor
 
 
 
-
-
 ### Initial Configuration of PAM Provider
 In order to allow Keyfactor to use the new Google Cloud Secret Manager PAM Provider, the definition needs to be added to the application database.
 This is done by running the provided [add_PAMProvider.sql](./add_PAMProvider.sql) script on the Keyfactor application database, which only needs to be done one time.
