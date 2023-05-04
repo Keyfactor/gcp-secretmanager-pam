@@ -2,11 +2,11 @@
 using Keyfactor.Platform.Extensions;
 using System.Collections.Generic;
 
-namespace Keyfactor.Extensions.Pam.Google
+namespace Keyfactor.Extensions.Pam.GCP
 {
     public class SecretManagerPAM : IPAMProvider
     {
-        public string Name => "Google-SecretManager";
+        public string Name => "GCP-SecretManager";
 
         public string GetPassword(Dictionary<string, string> instanceParameters, Dictionary<string, string> initializationInfo)
         {
