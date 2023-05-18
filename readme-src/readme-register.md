@@ -1,8 +1,5 @@
-```xml
-<register type="IPAMProvider" mapTo="Keyfactor.Extensions.Pam.Google.SecretManagerPAM, google-secretmanager-pam" name="Google-SecretManager" />
-```
 
-For the Google Secrets Manager PAM Provider you will also need to add a binding redirect for a Google library DLL to operate properly. This should be added to any configs edited to add the `<register>` entry.
+The entire contents (which includes all library dependencies) should be copied when installing. For the Google Secrets Manager PAM Provider you will also need to add an additional binding redirect for a Google library DLL to operate properly. This should be added to any configs edited to add the `<register>` entry.
 
 ```xml
 <dependentAssembly>
