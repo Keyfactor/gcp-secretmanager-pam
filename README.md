@@ -1,3 +1,4 @@
+
 # Google Cloud Secret Manager PAM Provider
 
 The Google Cloud Secret Manager PAM Provider allows for the use of a Secret Manager instance in Google Cloud to be used as a credential store for Keyfactor. Secret values can be retrieved and used in the Keyfactor Platform as passwords or other sensitive fields.
@@ -8,19 +9,16 @@ The Google Cloud Secret Manager PAM Provider allows for the use of a Secret Mana
 
 Keyfactor supports the retrieval of credentials from 3rd party Privileged Access Management (PAM) solutions. Secret values can normally be stored, encrypted at rest, in the Keyfactor Platform database. A PAM Provider can allow these secrets to be stored, managed, and rotated in an external platform. This integration is usually configured on the Keyfactor Platform itself, where the platform can request the credential values when needed. In certain scenarios, a PAM Provider can instead be run on a remote location in conjunction with a Keyfactor Orchestrator to allow credential requests to originate from a location other than the Keyfactor Platform.
 
-
-
 ## Support for Google Cloud Secret Manager PAM Provider
 
-Google Cloud Secret Manager PAM Provider is supported by Keyfactor for Keyfactor customers. If you have a support issue, please open a support ticket with your Keyfactor representative.
+Google Cloud Secret Manager PAM Provider is supported by Keyfactor for Keyfactor customers. If you have a support issue, please open a support ticket via the Keyfactor Support Portal at https://support.keyfactor.com
 
 ###### To report a problem or suggest a new feature, use the **[Issues](../../issues)** tab. If you want to contribute actual bug fixes or proposed enhancements, use the **[Pull requests](../../pulls)** tab.
-
-
 
 ---
 
 
+---
 
 
 
@@ -104,6 +102,7 @@ After it is set up, you can now use your PAM Provider when configuring certifica
 
 
 ---
+
 
 
 
