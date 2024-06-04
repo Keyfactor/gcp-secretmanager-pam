@@ -17,7 +17,9 @@ Google Cloud Secret Manager PAM Provider is supported by Keyfactor for Keyfactor
 
 ---
 
-
+When using this PAM Provider, there are 2 versions available to install depending on the Dot Net version in use.
+If you are using Keyfactor Command __before version 11__, you should install the PAM Provider from the `net472` folder.
+___Otherwise, by default___ you should install from the `netcoreapp3.1` folder. This folder should also be used when installing on the Universal Orchestrator.
 ---
 
 
@@ -58,6 +60,17 @@ After the secret is created, you can add the Role or Principal directly to it in
 
 #### [Authentication](https://cloud.google.com/docs/authentication/production)
 As a special requirement for authenticating with Google Cloud, you will need to generate and download a Service Account Key for your service account. This `json` file should be saved in a secure location on your machine. After saving it, you will need to configure the `GOOGLE_APPLICATION_CREDENTIALS` environment variable with the full path to the `json` file with the key material.
+
+
+#### Usage with the Keyfactor Universal Orchestrator
+To use the PAM Provider to resolve a field, for example a Server Password, instead of entering in the actual value for the Server Password, enter a `json` object with the parameters specifying the field.
+The parameters needed are the "instance" parameters above:
+
+~~~ json
+{"secretId":"gcp-secret-id"}
+~~~
+
+If a field supports PAM but should not use PAM, simply enter in the actual value to be used instead of the `json` format object above.
 
 #### In Keyfactor - PAM Provider
 ##### Installation
