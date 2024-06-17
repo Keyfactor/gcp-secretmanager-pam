@@ -1,0 +1,13 @@
+{
+	"extensions": {
+		"Keyfactor.Platform.Extensions.IPAMProvider": {
+			"PAMProviders.GCP-SecretManager.PAMProvider": {
+				"assemblyPath": "gcp-secretmanager-pam.dll",
+				"TypeFullName": "Keyfactor.Extensions.Pam.GCP.SecretManagerPAM"
+			}
+		}
+	},
+	"Keyfactor:PAMProviders:GCP-SecretManager:InitializationInfo": {
+		"projectId": "gcp-project-id"
+	}
+}
